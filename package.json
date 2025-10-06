@@ -1,0 +1,16 @@
+{
+  "name": "nextjs-devops-assessment",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "start:prod": "NODE_ENV=production npm run start"
+  },
+  "dependencies": {
+    "next": "13.4.10",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
