@@ -10,7 +10,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/swapnil-070904/wexaai:latest
+  IMAGE_NAME: ghcr.io/swapnil-070904/wexaai
 
 jobs:
   build-and-push:
