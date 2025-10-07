@@ -1,21 +1,18 @@
-# Multi-stage Dockerfile for Next.js
-FROM node:18-alpine AS deps
+FROM node:18-alpine AS b1
 WORKDIR /app
-COPY package.json package-lock.json* ./
+COPY package*.json ./
 RUN npm ci --silent || npm install --silent
 
 FROM node:18-alpine AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=b1 /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
 FROM node:18-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-# If you want to run on a different port, set PORT env var when running the container
 ENV PORT=3000
-COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json

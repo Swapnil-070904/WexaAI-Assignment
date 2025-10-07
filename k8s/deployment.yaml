@@ -14,11 +14,11 @@ spec:
       labels:
         app: nextjs
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: nextjs
-          # Replace <GHCR_IMAGE> with your actual GHCR image (see README)
-          image: <GHCR_IMAGE>
-          imagePullPolicy: IfNotPresent
+          image: ghcr.io/swapnil-070904/wexaai:latest
           ports:
             - containerPort: 3000
           livenessProbe:
