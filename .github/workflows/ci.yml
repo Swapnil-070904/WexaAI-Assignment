@@ -2,8 +2,8 @@ name: CI - Build and Push Docker Image
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ main ]
+  push:
+    branches: [ main ]
 
 permissions:
   contents: read

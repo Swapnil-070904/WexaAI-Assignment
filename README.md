@@ -49,7 +49,7 @@ It tags images as:
 
 
 Deploy to Minikube
-1. Start Minikube (if not running):
+1. Start Minikube:
 
 ```bash
 minikube start --driver=docker
@@ -82,6 +82,7 @@ kubectl apply -f k8s/service.yaml
 
 
 # get node IP and nodePort
+```bash
 minikube ip
-# then open http://<minikube-ip>:30000
 ```
+then open http://minikube-ip:30000
