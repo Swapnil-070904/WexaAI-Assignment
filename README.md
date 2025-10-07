@@ -1,4 +1,4 @@
-# DevOps Internship Assessment - Next.js Containerization & Kubernetes
+# WexaAI DevOps Assessment
 
 This repository contains a minimal Next.js application and everything needed to containerize it, push the image to GitHub Container Registry (GHCR), and deploy to Kubernetes (Minikube).
 
@@ -18,7 +18,7 @@ Quick setup (local)
 2. Install project dependencies:
 
 ```bash
-cd "c:\Users\ak680\Desktop\wexa ai"
+cd "WexaAi/"
 npm install
 ```
 
@@ -32,14 +32,14 @@ npm run dev
 Build and run Docker image locally
 
 ```bash
-# build image (tag is local)
+# build image
 docker build -t ghcr.io/<Username>/wexaai:latest .
 # run container
 docker run -p 3000:3000 ghcr.io/<Username>/wexaai:latest
 # open http://localhost:3000
 ```
 
-Push image to GitHub Container Registry (CI)
+Push image to GitHub Container Registry
 
 The included GitHub Actions workflow (`.github/workflows/ci.yml`) will build and push the image automatically on push to the `main` branch.
 
@@ -80,9 +80,8 @@ kubectl apply -f k8s/service.yaml
 
 5. Access the application:
 
-
 # get node IP and nodePort
 ```bash
 minikube ip
+# open http://minikube-ip:30000
 ```
-then open http://minikube-ip:30000
